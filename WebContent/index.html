@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main - CardcastExport</title>
+</head>
+<body>
+<input id="deckCode" type="text" title="Deck code"/>
+<button id="fetch">Fetch</button>
+</body>
+
+<script>
+    var deckCode = document.getElementById("deckCode");
+    document.getElementById("fetch").onclick = function () {
+        var value = deckCode.value;
+        if (!value || value.length !== 5) {
+            console.error("Invalid code: " + value);
+            return;
+        }
+
+        document.location = "/code/" + value;
+    }
+</script>
+</html>
