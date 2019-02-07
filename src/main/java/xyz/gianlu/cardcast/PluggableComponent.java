@@ -14,8 +14,8 @@ import java.util.Map;
 public class PluggableComponent extends BaseComponent {
     private final Main main;
 
-    public PluggableComponent(@NotNull Map<String, String> config) {
-        super(config, "cardcastExport");
+    public PluggableComponent(@NotNull Map<String, String> config, @NotNull String appId) {
+        super(config, appId);
 
         main = new Main(new File(config.get("webContent")));
     }
@@ -28,7 +28,7 @@ public class PluggableComponent extends BaseComponent {
 
     @Override
     public @NotNull String id() {
-        return "cardcastExport";
+        return "CardcastExport";
     }
 
     @Override

@@ -33,6 +33,9 @@
                                     <mainClass>xyz.gianlu.cardcast.Main</mainClass>
                                 </manifest>
                             </archive>
+                            <descriptors>
+                                <descriptor>src/assembly/webContent.xml</descriptor>
+                            </descriptors>
                             <descriptorRefs>
                                 <descriptorRef>jar-with-dependencies</descriptorRef>
                             </descriptorRefs>
