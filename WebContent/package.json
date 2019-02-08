@@ -4,7 +4,9 @@
   "description": "",
   "dependencies": {
     "@material/button": "^0.44.0",
-    "@material/textfield": "^0.44.0",
+    "@material/textfield": "^0.44.0"
+  },
+  "devDependencies": {
     "gulp": "^4.0.0",
     "gulp-clean-css": "^4.0.0",
     "gulp-rename": "^1.4.0",
