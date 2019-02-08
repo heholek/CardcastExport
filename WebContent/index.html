@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Main - CardcastExport</title>
+    <link href="css/main.min.css" rel="stylesheet">
 </head>
 <body>
-<input id="deckCode" type="text" title="Deck code"/>
-<button id="fetch">Fetch</button>
+
+<div class="mdc-text-field">
+    <input type="text" id="deckCode" class="mdc-text-field__input" required maxlength="5" minlength="5">
+    <label class="mdc-floating-label" for="deckCode">Deck code</label>
+    <div class="mdc-line-ripple"></div>
+</div>
+
+<button class="mdc-button mdc-button--raised" id="fetch">
+    <span class="mdc-button__label">Fetch</span>
+</button>
+
 </body>
 
-<script>
-    var deckCode = document.getElementById("deckCode");
-    document.getElementById("fetch").onclick = function () {
-        var value = deckCode.value;
-        if (!value || value.length !== 5) {
-            console.error("Invalid code: " + value);
-            return;
-        }
-
-        document.location = "/code/" + value;
-    }
-</script>
+<script src="vendor/ripple/mdc.ripple.min.js"></script>
+<script src="vendor/textfield/mdc.textfield.min.js"></script>
+<script src="js/index.min.js"></script>
 </html>
