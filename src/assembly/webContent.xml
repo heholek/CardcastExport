@@ -9,6 +9,10 @@
             <directory>${project.basedir}/WebContent/</directory>
             <excludes>
                 <exclude>.gitignore</exclude>
+                <exclude>node_modules</exclude>
+                <exclude>gulpfile.js</exclude>
+                <exclude>package.json</exclude>
+                <exclude>package-lock.json</exclude>
             </excludes>
             <outputDirectory>/</outputDirectory>
         </fileSet>

@@ -1,12 +1,12 @@
-var callsContainer = document.getElementById("calls");
-var responsesContainer = document.getElementById("responses");
+const callsContainer = document.getElementById("calls");
+const responsesContainer = document.getElementById("responses");
 
 function getLastPathSegment() {
     return decodeURIComponent(new RegExp('[^\\/]+(?=\\/$|$)').exec(window.location.href) || [null, '']) || null;
 }
 
 function doRequest(url, done, error) {
-    var xhttp = new XMLHttpRequest();
+    const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState === 4) {
             if (this.status === 200) done(this);
@@ -19,7 +19,7 @@ function doRequest(url, done, error) {
 
 function load(code) {
     doRequest("https://api.cardcastgame.com/v1/decks/" + code + "/calls", function (xhttp) {
-        var calls = xhttp.responseText;
+        const calls = xhttp.responseText;
         doRequest("https://api.cardcastgame.com/v1/decks/" + code + "/responses", function (xhttp) {
             loaded(code, JSON.parse(calls), JSON.parse(xhttp.responseText))
         }, function (xhttp) {
@@ -31,13 +31,23 @@ function load(code) {
 }
 
 function error(xhttp) {
-    console.error(xhttp); // TODO
+    document.getElementById("loader").style.display = "none";
+
+    console.debug(xhttp);
+
+    const error = document.getElementById("error");
+    error.style.display = null;
+    if (xhttp.status === 400) error.innerHTML = "404: Not found";
+    else error.innerHTML = xhttp.status;
 }
 
 function loaded(code, calls, responses) {
     addLinks("Download original JSON", JSON.stringify, code, "_original.json", "application/json", calls, responses);
     addLinks("Download simplified JSON", toSimplified, code, "_simplified.json", "application/json", calls, responses);
     addLinks("Download as text", toText, code, "_text.txt", "text/plain", calls, responses);
+
+    document.getElementById("content").style.display = null;
+    document.getElementById("loader").style.display = "none";
 }
 
 function addLinks(text, transformer, code, suffix, mime, calls, responses) {
@@ -46,15 +56,15 @@ function addLinks(text, transformer, code, suffix, mime, calls, responses) {
 }
 
 function toSimplified(json) {
-    var array = [];
-    for (var i = 0; i < json.length; i++)
+    const array = [];
+    for (let i = 0; i < json.length; i++)
         array.push(json[i].text.join("_"));
     return JSON.stringify(array);
 }
 
 function toText(json) {
-    var str = "";
-    for (var i = 0; i < json.length; i++)
+    let str = "";
+    for (let i = 0; i < json.length; i++)
         str += json[i].text.join("_") + "\r\n";
     return str;
 }
@@ -64,15 +74,28 @@ function generateLink(blob, mime) {
 }
 
 function createLinkElm(text, download, blob, mime) {
-    var a = document.createElement("a");
-    a.innerHTML = text;
+    const span = document.createElement("span");
+    span.innerHTML = text;
+    span.className = "mdc-button__label";
+
+    const button = document.createElement("button");
+    button.appendChild(span);
+    button.className = "mdc-button mdc-button--outlined";
+    mdc.ripple.MDCRipple.attachTo(button);
+
+    const a = document.createElement("a");
+    a.appendChild(button);
+    a.className = "mb10";
     a.download = download;
     a.href = generateLink(blob, mime);
+
     return a;
 }
 
-var code = getLastPathSegment();
-console.log(code);
+const code = getLastPathSegment();
+console.debug(code);
+
+document.getElementById("code").innerHTML = code;
 
 load(code);
 
