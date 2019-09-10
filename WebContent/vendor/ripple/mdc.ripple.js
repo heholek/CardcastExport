@@ -1675,7 +1675,7 @@
                         }
 
                         if (e !== undefined) {
-                            activatedTargets.push(/** @type {!EventTarget} */e.target);
+                            activatedTargets.push( /** @type {!EventTarget} */e.target);
                             this.registerDeactivationHandlers_(e);
                         }
 

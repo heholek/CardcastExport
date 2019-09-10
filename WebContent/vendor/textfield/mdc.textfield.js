@@ -901,7 +901,7 @@
                         this.ripple = null;
                         if (!this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* cssClasses */].TEXTAREA) && !this.root_.classList.contains(__WEBPACK_IMPORTED_MODULE_3__constants__["c" /* cssClasses */].OUTLINED)) {
                             var MATCHES = Object(__WEBPACK_IMPORTED_MODULE_2__material_ripple_util__["getMatchesProperty"])(HTMLElement.prototype);
-                            var adapter = _extends(__WEBPACK_IMPORTED_MODULE_1__material_ripple_index__["MDCRipple"].createAdapter(/** @type {!RippleCapableSurface} */this), {
+                            var adapter = _extends(__WEBPACK_IMPORTED_MODULE_1__material_ripple_index__["MDCRipple"].createAdapter( /** @type {!RippleCapableSurface} */this), {
                                 isSurfaceActive: function isSurfaceActive() {
                                     return _this2.input_[MATCHES](':active');
                                 },
@@ -2633,7 +2633,7 @@
                     value: function getDefaultFoundation() {
                         var _this2 = this;
 
-                        return new __WEBPACK_IMPORTED_MODULE_2__foundation__["a" /* default */](/** @type {!MDCTextFieldHelperTextAdapter} */_extends({
+                        return new __WEBPACK_IMPORTED_MODULE_2__foundation__["a" /* default */]( /** @type {!MDCTextFieldHelperTextAdapter} */_extends({
                             addClass: function addClass(className) {
                                 return _this2.root_.classList.add(className);
                             },
@@ -2967,7 +2967,7 @@
                     value: function getDefaultFoundation() {
                         var _this2 = this;
 
-                        return new __WEBPACK_IMPORTED_MODULE_2__foundation__["a" /* default */](/** @type {!MDCTextFieldIconAdapter} */_extends({
+                        return new __WEBPACK_IMPORTED_MODULE_2__foundation__["a" /* default */]( /** @type {!MDCTextFieldIconAdapter} */_extends({
                             getAttr: function getAttr(attr) {
                                 return _this2.root_.getAttribute(attr);
                             },
@@ -4189,7 +4189,7 @@
                     value: function getDefaultFoundation() {
                         var _this2 = this;
 
-                        return new __WEBPACK_IMPORTED_MODULE_2__foundation__["a" /* default */](/** @type {!MDCLineRippleAdapter} */_extends({
+                        return new __WEBPACK_IMPORTED_MODULE_2__foundation__["a" /* default */]( /** @type {!MDCLineRippleAdapter} */_extends({
                             addClass: function addClass(className) {
                                 return _this2.root_.classList.add(className);
                             },
@@ -5726,7 +5726,7 @@
                         }
 
                         if (e !== undefined) {
-                            activatedTargets.push(/** @type {!EventTarget} */e.target);
+                            activatedTargets.push( /** @type {!EventTarget} */e.target);
                             this.registerDeactivationHandlers_(e);
                         }
 

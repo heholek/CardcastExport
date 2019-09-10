@@ -6,7 +6,7 @@ document.getElementById("fetch").onclick = function () {
         return;
     }
 
-    document.location = "/code/" + value;
+    document.location = "/code/" + value + "/";
 };
 
 mdc.textfield.MDCTextField.attachTo(document.querySelector('.mdc-text-field'));

@@ -1,14 +1,14 @@
 {
   "name": "cardcast-export",
-  "version": "0.0.1",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Export Cardcast decks to JSON, TXT and more",
   "dependencies": {
-    "@material/button": "^0.44.0",
-    "@material/textfield": "^0.44.0"
+    "@material/button": "^0.44.1",
+    "@material/textfield": "^0.44.1"
   },
   "devDependencies": {
-    "gulp": "^4.0.0",
-    "gulp-clean-css": "^4.0.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
     "gulp-rename": "^1.4.0",
     "gulp-uglify-es": "^1.0.4"
   }
